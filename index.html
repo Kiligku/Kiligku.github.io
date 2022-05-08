@@ -157,6 +157,271 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-魔法方法-构造与析构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/02/%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95-%E6%9E%84%E9%80%A0%E4%B8%8E%E6%9E%90%E6%9E%84/">魔法方法_构造与析构</a>
+    </h1>
+  
+
+        
+        <a href="/2022/05/02/%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95-%E6%9E%84%E9%80%A0%E4%B8%8E%E6%9E%90%E6%9E%84/" class="archive-article-date">
+  	<time datetime="2022-05-02T03:07:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="python的魔法方法——构造与析构"><a href="#python的魔法方法——构造与析构" class="headerlink" title="python的魔法方法——构造与析构"></a>python的魔法方法——构造与析构</h1><h3 id="1-new-cls-…"><a href="#1-new-cls-…" class="headerlink" title="1. __new__(cls[, …])"></a>1. __new__(cls[, …])</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CapStr</span>(<span class="title class_ inherited__">str</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__new__</span>(<span class="params">cls, string</span>):</span><br><span class="line">        string = string.upper()</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">str</span>.__new__(cls, string)</span><br></pre></td></tr></table></figure>
+
+<p>python中的string是不可修改的类型，string</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类与对象</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">魔法方法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/02/%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95-%E6%9E%84%E9%80%A0%E4%B8%8E%E6%9E%90%E6%9E%84/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-类与对象-BIF" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/02/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1-BIF/">类与对象_BIF</a>
+    </h1>
+  
+
+        
+        <a href="/2022/05/02/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1-BIF/" class="archive-article-date">
+  	<time datetime="2022-05-02T01:53:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="python类与对象的BIF-Built-In-Function"><a href="#python类与对象的BIF-Built-In-Function" class="headerlink" title="python类与对象的BIF(Built In Function)"></a>python类与对象的BIF(Built In Function)</h1>
+        
+          <a class="article-more-a" href="/2022/05/02/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1-BIF/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类与对象</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/02/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1-BIF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="python-类与对象-构造与特性" class="article article-type-python  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/01/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1-%E6%9E%84%E9%80%A0%E4%B8%8E%E7%89%B9%E6%80%A7/">类与对象_构造与特性</a>
+    </h1>
+  
+
+        
+        <a href="/2022/05/01/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1-%E6%9E%84%E9%80%A0%E4%B8%8E%E7%89%B9%E6%80%A7/" class="archive-article-date">
+  	<time datetime="2022-05-01T13:33:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="python类与对象"><a href="#python类与对象" class="headerlink" title="python类与对象"></a>python类与对象</h1>
+        
+          <a class="article-more-a" href="/2022/05/01/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1-%E6%9E%84%E9%80%A0%E4%B8%8E%E7%89%B9%E6%80%A7/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类与对象</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/01/%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1-%E6%9E%84%E9%80%A0%E4%B8%8E%E7%89%B9%E6%80%A7/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-理论力学-动力学" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -177,60 +442,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="动力学知识点总结"><a href="#动力学知识点总结" class="headerlink" title="动力学知识点总结"></a>动力学知识点总结</h1><h2 id="1-点的运动学"><a href="#1-点的运动学" class="headerlink" title="1. 点的运动学"></a>1. 点的运动学</h2><p>研究对象：点的运动方程，运动轨迹，速度和加速度等</p>
-<ul>
-<li>矢量法<br>  利用速度和加速度的原始定义</li>
-<li>直角坐标法<br>  用直角坐标表示点的轨迹方程</li>
-<li>自然法<ol>
-<li>弧坐标：描述运动弧长随时间的变化</li>
-<li>自然轴系：以运动轨迹上一点M为原点，以切线，主法线，副法线（垂直于前两者构成平面的线）组成的正交坐标系</li>
-</ol>
-</li>
-</ul>
-<h3 id="刚体的简单运动"><a href="#刚体的简单运动" class="headerlink" title="刚体的简单运动"></a>刚体的简单运动</h3><ul>
-<li>刚体的平行移动：每一个瞬时，刚体各点的速度相同，加速度也相同</li>
-<li>刚体绕定轴转动：每一个点的角速度都相等</li>
-</ul>
-<h3 id="齿轮的传动比"><a href="#齿轮的传动比" class="headerlink" title="齿轮的传动比"></a>齿轮的传动比</h3><p>核心思想：接触点的速度相等</p>
-<h3 id="用矢积表示点的速度和点的加速度"><a href="#用矢积表示点的速度和点的加速度" class="headerlink" title="用矢积表示点的速度和点的加速度"></a>用矢积表示点的速度和点的加速度</h3><p>$ \pmb{v} &#x3D; \pmb{\omega} \times \pmb{r} $<br>$ \pmb{a} &#x3D; \underbrace{\pmb{\alpha} \times \pmb{r}}<em>{\alpha</em>{t}} + \underbrace{\pmb{\omega} \times \pmb{b}}<em>{\alpha</em>{n}} $<br>常见应用：建立坐标系，套公式计算</p>
-<h2 id="2-点的合成运动"><a href="#2-点的合成运动" class="headerlink" title="2. 点的合成运动"></a>2. 点的合成运动</h2><p>点的速度：</p>
-<ul>
-<li>牵连速度：动参考系相对于定参考系的运动</li>
-<li>相对速度：动点相对于动参考系的运动</li>
-<li>绝对速度：动点相对于定参考系的运动</li>
-</ul>
-<p>满足关系<br>$\pmb{v_{a}} &#x3D; \pmb{v_{e}} + \pmb{v_{r}}$</p>
-<p>点的加速度：</p>
-<ul>
-<li>牵连加速度</li>
-<li>相对加速度</li>
-<li>科氏加速度</li>
-<li>绝对加速度</li>
-</ul>
-<p>满足关系<br>$\pmb{a_{a}} &#x3D; \pmb{a_{r}} + \pmb{a_{e}} + \pmb{a_{c}}$<br>$\pmb{a_{c}} &#x3D; 2\pmb{w} \times \pmb{v}$</p>
-<p>常见题型（加速度的求解也类似）：</p>
-<ol>
-<li>绝对速度的方向，相对速度，牵连速度的大小或方向已知，利用矢量合成可以直接求解未知量。</li>
-<li>绝对速度的方向难以确定，可以通过寻找多个动系来补充方程。</li>
-</ol>
-<p><strong>tips</strong>：通常情况下，动点选择的是两个物体的重合点，但有时该点的绝对速度\牵连速度方向难以确定，此时可以通过选择运动规律更一般的点作为动点（比如凸轮的圆心）</p>
-<h2 id="3-刚体的平面运动"><a href="#3-刚体的平面运动" class="headerlink" title="3. 刚体的平面运动"></a>3. 刚体的平面运动</h2><ul>
-<li>基点法：用于速度或加速度的求解<ul>
-<li>引理：速度投影定理</li>
-</ul>
-</li>
-</ul>
-<p><strong>tips</strong>:可以找多个基点来增加独立方程数量</p>
-<ul>
-<li>瞬心法：用于求解速度<ul>
-<li>根据相对运动的特性寻找瞬心</li>
-<li>用几何法寻找瞬心</li>
-<li>刚体做平移或瞬时平移时，瞬心处于无穷远</li>
-</ul>
-</li>
-</ul>
-<h2 id="运动学综合应用："><a href="#运动学综合应用：" class="headerlink" title="运动学综合应用："></a>运动学综合应用：</h2><p>多个刚体的组合:刚体的组合连接部分需要用到点牵连运动的知识求解，单个刚体中速度的求解需要用到刚体平面运动的知识。利用同一刚体角速度和角加速度相等可以简化运算。</p>
-
+        <h1 id="动力学知识点总结"><a href="#动力学知识点总结" class="headerlink" title="动力学知识点总结"></a>动力学知识点总结</h1>
+        
+          <a class="article-more-a" href="/2022/04/29/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6-%E5%8A%A8%E5%8A%9B%E5%AD%A6/#more">more >></a>
+        
       
 
       
@@ -238,7 +453,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">总结</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/理论力学//" class="article-tag-list-link color5">理论力学</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -292,17 +529,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="HEXO上传博客常用指令"><a href="#HEXO上传博客常用指令" class="headerlink" title="HEXO上传博客常用指令"></a>HEXO上传博客常用指令</h1><h3 id="hexo-n-title"><a href="#hexo-n-title" class="headerlink" title="hexo n title"></a>hexo n title</h3><p>新建指定名字的博客</p>
-<h3 id="hexo-clean"><a href="#hexo-clean" class="headerlink" title="hexo clean"></a>hexo clean</h3><p>清除缓存文件和已经生成的静态文件</p>
-<h3 id="hexo-g"><a href="#hexo-g" class="headerlink" title="hexo g"></a>hexo g</h3><p>生成网站的静态文件到public文件夹中</p>
-<h3 id="hexo-d"><a href="#hexo-d" class="headerlink" title="hexo d"></a>hexo d</h3><p>生成网站的静态文件并部署到仓库中</p>
-<h3 id="hexo-s"><a href="#hexo-s" class="headerlink" title="hexo s"></a>hexo s</h3><p>启动本地服务器，即输入网址 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> 就可以在本地预览网页</p>
-<h3 id="常用组合"><a href="#常用组合" class="headerlink" title="常用组合"></a>常用组合</h3><ul>
-<li>hexo n + hexo clean + hexo g + hexo s:生成本地可以查看的网页</li>
-<li>hexo n + hexo clean + hexo g + hexo d:生成远端可以查看的网页</li>
-</ul>
-<h3 id="在vscode中上传博客"><a href="#在vscode中上传博客" class="headerlink" title="在vscode中上传博客"></a>在vscode中上传博客</h3><p>终端-新建终端-右下加号-选择git bash-输入相应指令<br><img src="https://raw.githubusercontent.com/Kiligku/images/master/3%25%7B1II5%60TEL%7D0%7D%5B8_3%7BF9%60N.png"/></p>
-
+        <h1 id="HEXO上传博客常用指令"><a href="#HEXO上传博客常用指令" class="headerlink" title="HEXO上传博客常用指令"></a>HEXO上传博客常用指令</h1>
+        
+          <a class="article-more-a" href="/2022/04/29/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more">more >></a>
+        
       
 
       
@@ -364,72 +594,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h2><p>这是一级标题的正文。<br>新起一行？</p>
-<p>新起一段！<br>加星号加粗！<strong>加粗了</strong>  <em>斜体了</em></p>
-<ol>
-<li>一<ol>
-<li>二级列表1</li>
-<li>二级列表2</li>
-</ol>
-</li>
-<li>二</li>
-<li>三</li>
-</ol>
-<p>中间插入文字重新从一开始编号</p>
-<ol>
-<li>一一</li>
-<li>二二</li>
-<li>三三</li>
-</ol>
-<h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><p>粘贴的快捷键为<strong>ctrl+alt+v</strong><br>换行加星号给图片添加标题，圆括号内添加标题只能在鼠标悬停于图片上时显示<br><img src="https://raw.githubusercontent.com/Kiligku/images/master/%E6%9D%B1%E6%96%B9%E9%92%A2%E7%90%B4%E7%A5%AD%EF%BC%9A%E5%B9%BB%E6%A2%A6%E7%BB%88%E9%86%92%20%E6%9C%AC%E6%97%A0%E4%B8%8D%E6%95%A3%E4%B9%8B%E5%AE%B4_109951163071966688.jpg"></p>
-<p><em>辉夜姬</em></p>
-<img src="https://raw.githubusercontent.com/Kiligku/images/master/2022-04-04-21-40-49.png" width=50%/>
-
-<p><em>harutya</em></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">markdown语法</span><br><span class="line">![](<span class="link">https://raw.githubusercontent.com/Kiligku/images/master/%E6%9D%B1%E6%96%B9%E9%92%A2%E7%90%B4%E7%A5%AD%EF%BC%9A%E5%B9%BB%E6%A2%A6%E7%BB%88%E9%86%92%20%E6%9C%AC%E6%97%A0%E4%B8%8D%E6%95%A3%E4%B9%8B%E5%AE%B4_109951163071966688.jpg</span>)</span><br><span class="line"></span><br><span class="line"><span class="emphasis">*辉夜姬*</span></span><br><span class="line"></span><br><span class="line">HTML语法</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://raw.githubusercontent.com/Kiligku/images/master/2022-04-04-21-40-49.png&quot;</span> <span class="attr">width</span>=<span class="string">50%/</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="emphasis">*harutya*</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="实现图片并排"><a href="#实现图片并排" class="headerlink" title="实现图片并排"></a>实现图片并排</h3><h4 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h4><p><img src="https://raw.githubusercontent.com/Kiligku/images/master/2022-04-04-21-43-11.png"><img src="https://raw.githubusercontent.com/Kiligku/images/master/2022-04-04-21-43-11.png"><br>两短代码中间不能有空格<br>如果图片过大则无法实现并排</p>
-<h4 id="HTML语法"><a href="#HTML语法" class="headerlink" title="HTML语法"></a>HTML语法</h4><center class="half">
-<img src="https://img-blog.csdnimg.cn/2019012511060017.png" width=200>
-<img src="https://img-blog.csdnimg.cn/2019012511060017.png" width=200>
-</center>
-
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">#### markdown语法</span></span><br><span class="line">![](<span class="link">https://raw.githubusercontent.com/Kiligku/images/master/2022-04-04-21-43-11.png</span>)![](<span class="link">https://raw.githubusercontent.com/Kiligku/images/master/2022-04-04-21-43-11.png</span>)</span><br><span class="line">两短代码中间不能有空格  </span><br><span class="line">如果图片过大则无法实现并排</span><br><span class="line"></span><br><span class="line"><span class="section">#### HTML语法</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">center</span> <span class="attr">class</span>=<span class="string">&quot;half&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://img-blog.csdnimg.cn/2019012511060017.png&quot;</span> <span class="attr">width</span>=<span class="string">200</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://img-blog.csdnimg.cn/2019012511060017.png&quot;</span> <span class="attr">width</span>=<span class="string">200</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="插入公式"><a href="#插入公式" class="headerlink" title="插入公式"></a>插入公式</h3><h4 id="单个公式"><a href="#单个公式" class="headerlink" title="单个公式"></a>单个公式</h4><p>$<br>\lim_{x \to 0}\frac{sin(x)}{x}&#x3D;1<br>$</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$</span><br><span class="line">\lim<span class="emphasis">_&#123;x \to 0&#125;\frac&#123;sin(x)&#125;&#123;x&#125;=1</span></span><br><span class="line"><span class="emphasis">$</span></span><br></pre></td></tr></table></figure>
-<h4 id="在文字中插入公式"><a href="#在文字中插入公式" class="headerlink" title="在文字中插入公式"></a>在文字中插入公式</h4><p>等价无穷小$\lim_{x \to 0}\frac{sin(x)}{x}&#x3D;1$</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">等价无穷小$\lim<span class="emphasis">_&#123;x \to 0&#125;\frac&#123;sin(x)&#125;&#123;x&#125;=1$</span></span><br></pre></td></tr></table></figure>
-<h3 id="插入表格"><a href="#插入表格" class="headerlink" title="插入表格"></a>插入表格</h3><p>表格内的文字默认为左对齐，在右侧打一个冒号改为右对齐，两侧都打冒号改为中对齐</p>
-<table>
-<thead>
-<tr>
-<th>aa</th>
-<th align="center">bb</th>
-<th align="right">cc</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1.1</td>
-<td align="center">4.5</td>
-<td align="right">1.4</td>
-</tr>
-<tr>
-<td>1.9</td>
-<td align="center">1.9</td>
-<td align="right">8.1</td>
-</tr>
-</tbody></table>
-<p>一键格式化表格输入内容 <strong>shift+alt+f</strong></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| aa  |  bb   |   cc |</span><br><span class="line">| --- | :---: | ---: | </span><br><span class="line">| 1.1 |  4.5  |  1.4 |</span><br><span class="line">| 1.9 |  1.9  |  8.1 |</span><br></pre></td></tr></table></figure>
-
-<h3 id="插入超链接"><a href="#插入超链接" class="headerlink" title="插入超链接"></a>插入超链接</h3><p>选中文字，然后ctrl+v粘贴<br>这是一个<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1si4y1472o?spm_id_from=333.337.search-card.all.click">链接</a></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个[<span class="string">链接</span>](<span class="link">https://www.bilibili.com/video/BV1si4y1472o?spm_id_from=333.337.search-card.all.click</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="插入代码块"><a href="#插入代码块" class="headerlink" title="插入代码块"></a>插入代码块</h3><p>输入&#96;&#96;&#96; <em>代码内容</em> + 语言名称</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">model_forward</span>(<span class="params">x_train, para</span>):  <span class="comment"># forward propagation on the entire model</span></span><br><span class="line">    caches = &#123;<span class="string">&#x27;A0&#x27;</span>: x_train&#125;  <span class="comment"># insert x_train as A0</span></span><br><span class="line">    <span class="comment"># caches: store intermediate variable A, in order to calculate backward propagation</span></span><br><span class="line">    L = <span class="built_in">int</span>(<span class="built_in">len</span>(para) / <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">for</span> l <span class="keyword">in</span> <span class="built_in">range</span>(L - <span class="number">1</span>):</span><br><span class="line">        W = para[<span class="string">&#x27;W&#x27;</span> + <span class="built_in">str</span>(l + <span class="number">1</span>)]</span><br><span class="line">        b = para[<span class="string">&#x27;b&#x27;</span> + <span class="built_in">str</span>(l + <span class="number">1</span>)]</span><br><span class="line">        A_prev = caches[<span class="string">&#x27;A&#x27;</span> + <span class="built_in">str</span>(l)]</span><br><span class="line">        caches[<span class="string">&#x27;A&#x27;</span> + <span class="built_in">str</span>(l + <span class="number">1</span>)], caches[<span class="string">&#x27;Z&#x27;</span> + <span class="built_in">str</span>(l + <span class="number">1</span>)</span><br><span class="line">                                         ] = forwardProp(W, b, A_prev, activation=<span class="string">&#x27;relu&#x27;</span>)</span><br><span class="line">    <span class="comment"># process the last layer alone</span></span><br><span class="line">    W = para[<span class="string">&#x27;W&#x27;</span> + <span class="built_in">str</span>(L)]</span><br><span class="line">    b = para[<span class="string">&#x27;b&#x27;</span> + <span class="built_in">str</span>(L)]</span><br><span class="line">    A_prev = caches[<span class="string">&#x27;A&#x27;</span> + <span class="built_in">str</span>(L - <span class="number">1</span>)]</span><br><span class="line">    caches[<span class="string">&#x27;A&#x27;</span> + <span class="built_in">str</span>(L)], caches[<span class="string">&#x27;Z&#x27;</span> + <span class="built_in">str</span>(L)] = forwardProp(W,</span><br><span class="line">                                                             b, A_prev, activation=<span class="string">&#x27;sigmoid&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> caches</span><br></pre></td></tr></table></figure>
-
-<h3 id="禅模式"><a href="#禅模式" class="headerlink" title="禅模式"></a>禅模式</h3><p>快捷键ctrl+k松开后再按z</p>
-
+        <h2 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h2>
+        
+          <a class="article-more-a" href="/2022/04/04/markdown%E6%93%8D%E4%BD%9C/#more">more >></a>
+        
       
 
       
@@ -658,6 +826,18 @@ MathJax.Hub.Queue(function() {
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">类与对象</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">魔法方法</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
