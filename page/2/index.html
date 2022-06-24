@@ -6,19 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>理论力学-动力学 | KILIG</title>
+  <title>KILIG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="动力学部分知识总结">
-<meta property="og:type" content="article">
-<meta property="og:title" content="理论力学-动力学">
-<meta property="og:url" content="http://example.com/2022/06/13/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6-%E5%8A%A8%E5%8A%9B%E5%AD%A6/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="KILIG">
+<meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="KILIG">
-<meta property="og:description" content="动力学部分知识总结">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-13T07:55:14.000Z">
-<meta property="article:modified_time" content="2022-06-18T02:32:49.646Z">
 <meta property="article:author" content="Xuan">
-<meta property="article:tag" content="总结">
+<meta property="article:tag" content="Bugs">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="KILIG" type="application/atom+xml">
@@ -159,192 +155,62 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-理论力学-动力学" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      理论力学-动力学
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/04/04/hello-world/">Hello World</a>
     </h1>
   
 
         
-        <a href="/2022/06/13/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6-%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="archive-article-date">
-  	<time datetime="2022-06-13T07:55:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-13</time>
+        <a href="/2022/04/04/hello-world/" class="archive-article-date">
+  	<time datetime="2022-04-04T03:23:39.935Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="动力学部分知识总结"><a href="#动力学部分知识总结" class="headerlink" title="动力学部分知识总结"></a><font color=CornflowerBlue>动力学部分知识总结</font></h1><span id="more"></span>
-<p><font color=CornflowerBlue>written in markdown</font><br>主要的难点在于定理的推导（初学）和模型的建立（做题）</p>
-<h2 id="1-动力学的基本定律"><a href="#1-动力学的基本定律" class="headerlink" title="1. 动力学的基本定律"></a>1. 动力学的基本定律</h2><p>第一定律： 惯性定律。不受力作用的质点，将保持静止或做匀速直线运动。<br>第二定律： 力与加速度之间的关系定律。 $\frac{d(m\mathbf{v})}{dt}&#x3D;\pmb{F}$<br>第三定律：作用与反作用定律。两个物体间的作用力与反作用力总是大小相等、方向相反，沿着同一直线，且分别同时作用在这两个物体上。</p>
-<p>运用动力学的第二定律可以得出质点运动的微分方程。<br><strong>tips</strong>：要区分质点的运动微分方程和质点的运动方程，质点的运动方程必须表示为$\pmb{r}&#x3D;\pmb{r}(t)$, 而质点的运动微分方程一般是由运动学第二定律得出的微分方程，不一定有解析解。</p>
-<h2 id="2-动量与动量定理"><a href="#2-动量与动量定理" class="headerlink" title="2.动量与动量定理"></a>2.动量与动量定理</h2><h3 id="1-质点系的动量"><a href="#1-质点系的动量" class="headerlink" title="1. 质点系的动量"></a>1. 质点系的动量</h3><p>$$\pmb{p}&#x3D;\sum{m_{i}\pmb{v_{i}}}&#x3D;m_{c}\pmb{v_{c}}$$</p>
-<p>常用的结论：转轴通过质心的物体的总动量为0。</p>
-<h3 id="2-质点的动量定理"><a href="#2-质点的动量定理" class="headerlink" title="2. 质点的动量定理"></a>2. 质点的动量定理</h3><p>$$m\pmb{v_2}-m\pmb{v_1} &#x3D; \int_{t_1}^{t_2}{\pmb{F}dt} &#x3D; \pmb{I}$</p>
-<h3 id="3-质点系的动量定理"><a href="#3-质点系的动量定理" class="headerlink" title="3. 质点系的动量定理"></a>3. 质点系的动量定理</h3><p>$\int_{\pmb{p_1}}^{\pmb{p_2}}d\pmb{p} &#x3D; \sum{\int_{t_1}^{t_2}\pmb{F}_i^{(e)}}$</p>
-<p>一个后面证明会用到的结论：$\sum{m_i\pmb{r}_i^{\prime} &#x3D; 0}$, $\pmb{r}_i^{\prime}$是相对于质心的矢径。<br><strong>证明：</strong> $\sum{m_i\pmb{r}_i^{\prime}} &#x3D; \sum{m_i(\pmb{r}_i - \pmb{r}_c)} &#x3D; \sum{m_i\pmb{r}_i} - \sum{m_i\pmb{r}_c} &#x3D; \pmb{0}$<br>即相对质心矢径与质点系质点质量加权和为0</p>
-<h2 id="3-动量矩和动量矩定理"><a href="#3-动量矩和动量矩定理" class="headerlink" title="3.动量矩和动量矩定理"></a>3.动量矩和动量矩定理</h2><h3 id="1-质点的动量矩"><a href="#1-质点的动量矩" class="headerlink" title="1. 质点的动量矩"></a>1. 质点的动量矩</h3><p>$$\pmb{M_o}(m\pmb{v}) &#x3D; \pmb{r}\times m\pmb{v}$$</p>
-<h3 id="2-质点系的动量矩"><a href="#2-质点系的动量矩" class="headerlink" title="2. 质点系的动量矩"></a>2. 质点系的动量矩</h3><p>$$\sum\pmb{M_o}(m_i\pmb{v_i}) &#x3D; \pmb{M_o}(m_c\pmb{v_c}) + \sum\pmb{M_c}(m_i\pmb{v_i})$$</p>
-<p><strong>推导方法：</strong> 把每个矢径拆成相对矢径和质心的矢径，每个速度拆成质心的速度和相对质心的速度，得到四项，中间两项利用2中证明的等式消去，剩下的两项就是质心的动量矩和刚体相对质心的动量矩。（这也是这两章大部分定理的推理思想）</p>
-<h3 id="3-质点系的动量矩定理："><a href="#3-质点系的动量矩定理：" class="headerlink" title="3. 质点系的动量矩定理："></a>3. 质点系的动量矩定理：</h3><p>推导方法：对质点系的动量矩定理求导，注意叉乘运算的求导法则。<br>Q:<font color=purple>叉乘的求导法则和乘法一样，为什么？</font><br>A:符合分配律运算的都符合乘法的求导法则<br>$$(\pmb{a}+d\pmb{a})\times(\pmb{b} + d\pmb{b}) &#x3D; \pmb{a}\times\pmb{b} +d\pmb{a}\times\pmb{b}+\pmb{a}\times d\pmb{b}$$<br>(忽略高阶小量）</p>
-<h4 id="1-对质心的动量矩定理："><a href="#1-对质心的动量矩定理：" class="headerlink" title="1. 对质心的动量矩定理："></a>1. 对质心的动量矩定理：</h4><p>$$\frac{d\pmb{L}_c}{dt} &#x3D; \pmb{M}_c$$</p>
-<h4 id="2-对任意点的动量矩定理-没啥大用）"><a href="#2-对任意点的动量矩定理-没啥大用）" class="headerlink" title="2. 对任意点的动量矩定理(没啥大用）"></a>2. 对任意点的动量矩定理(没啥大用）</h4><p>$$\frac{d\pmb{L}_o}{dt} &#x3D; \pmb{M}_c + \pmb{r}_c \times \sum \pmb{F}_i^{(e)}$$</p>
-<p><strong>tips：</strong></p>
-<ol>
-<li>在求解动量矩的过程中，一般要额外注意是对哪一个点求的动量矩，但若系统质心速度为0，对刚体中每一个点的动量矩都等于对质心的动量矩。</li>
-<li>一般做题都只使用对质心的动量矩定理，和质心运动定理一起使用，构成了<strong>刚体平面运动微分方程</strong></li>
-</ol>
-<h2 id="4-动能定理"><a href="#4-动能定理" class="headerlink" title="4. 动能定理"></a>4. 动能定理</h2><p>动能定理的积分形式：<br>$$T_2 - T_1 &#x3D; \sum{W_i}$$<br>两端同时对时间求导获得功率方程：<br>$$\frac{dT}{dt} &#x3D; \sum{P_i}$$</p>
-<p>列动能定理方程时容易踩的坑：</p>
-<ol>
-<li>忘记转动动能</li>
-<li>忘记力矩做功</li>
-<li><font color=red>忘记乘系数0.5</font></li>
-<li>在涉及到复杂运动学时算错力的功（比如无滑动的滚动，有的位移存在倍数关系没有那么直观）</li>
-</ol>
-<h2 id="5-达朗贝尔原理"><a href="#5-达朗贝尔原理" class="headerlink" title="5. 达朗贝尔原理"></a>5. 达朗贝尔原理</h2><p>主要注意的点：</p>
-<ol>
-<li>注意惯性力和惯性力矩的方向，应和加速度与角加速度反向。</li>
-<li>注意简化点，简化的点不同，惯性力的大小相同，惯性力矩的大小不同。这是由于惯性力和惯性力矩的本质是用来平衡合外力与合外力矩的物理量，合外力矩会随着简化点的改变而改变。</li>
-<li>惯性力和惯性力矩可以对整个系统求，也可以对系统中的各个部分分别求，效果是一样的。</li>
-</ol>
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/理论力学//" class="article-tag-list-link color5">理论力学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
       
 
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/04/04/hello-world/">展开全文 >></a>
+        </p>
+      
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/06/13/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6-%E5%8A%A8%E5%8A%9B%E5%AD%A6/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2022/06/18/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84feature/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          机器学习中的feature
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/05/08/%E7%94%A8tensor%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E7%8C%AB%E7%8C%AB%E8%AF%86%E5%88%AB/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">用tensor实现简单的猫猫识别</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -364,14 +230,12 @@
 
 
 
-  
-  
-  
 
   
-
   
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -394,8 +258,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
