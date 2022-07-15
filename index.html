@@ -157,6 +157,189 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-魔法方法-算术运算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/15/%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97/">python魔法方法————算术运算</a>
+    </h1>
+  
+
+        
+        <a href="/2022/07/15/%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97/" class="archive-article-date">
+  	<time datetime="2022-07-15T08:50:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="python魔法方法————算术运算"><a href="#python魔法方法————算术运算" class="headerlink" title="python魔法方法————算术运算"></a>python魔法方法————算术运算</h1><p>python中可以通过魔法方法定义类之间的算术运算，在调用算数运算符时相应的魔法方法被调用</p>
+<p>总体来说，算术运算相关的魔法方法分为算术运算，反运算，增量赋值运算，一元操作符四种</p>
+<h2 id="1-算术运算"><a href="#1-算术运算" class="headerlink" title="1.算术运算"></a>1.算术运算</h2><table>
+<thead>
+<tr>
+<th align="center">魔法方法名</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">__add__(self, other)</td>
+<td align="center">定义加法的行为：+</td>
+</tr>
+<tr>
+<td align="center">__sub__(self, other)</td>
+<td align="center">定义减法的行为：+</td>
+</tr>
+<tr>
+<td align="center">__mul__(self, other)</td>
+<td align="center">定义乘法的行为：+</td>
+</tr>
+<tr>
+<td align="center">__truediv__(self, other)</td>
+<td align="center">定义真除法的行为：+</td>
+</tr>
+<tr>
+<td align="center">__floordiv__(self, other)</td>
+<td align="center">定义整数除法运算的行为：+</td>
+</tr>
+<tr>
+<td align="center">__mod__(self, other)</td>
+<td align="center">定义取模的行为：+</td>
+</tr>
+<tr>
+<td align="center">__divmod__(self, other)</td>
+<td align="center">定义divmod()调用时的行为：+</td>
+</tr>
+<tr>
+<td align="center">__pow__(self, other)</td>
+<td align="center">定义当被power()调用或**运算时的行为</td>
+</tr>
+<tr>
+<td align="center">__lshift__(self, other)</td>
+<td align="center">定义左移的行为：&lt;&lt;</td>
+</tr>
+<tr>
+<td align="center">__rshift__(self, other)</td>
+<td align="center">定义右移操作的行为：&gt;&gt;</td>
+</tr>
+<tr>
+<td align="center">_\and__(self, other)</td>
+<td align="center">定义按位与操作的行为：+</td>
+</tr>
+<tr>
+<td align="center">_\xor__(self, other)</td>
+<td align="center">定义按位异或操作的行为：+</td>
+</tr>
+<tr>
+<td align="center">_\or__(self, other)</td>
+<td align="center">定义按位或操作的行为：+</td>
+</tr>
+</tbody></table>
+<p><strong>tips:</strong> </p>
+<ol>
+<li>真除法和整数除法的区别：真除法就是一般数学中的除法，整数除法的结果是真除法结果的floor值（即整除结果）</li>
+<li>divmod(a, b)：返回两个值，整除结果和余数</li>
+</ol>
+<h2 id="2-反运算"><a href="#2-反运算" class="headerlink" title="2.反运算"></a>2.反运算</h2><p>只有当运算符前面的对象没有相应方法（如add）或相应方法不支持时才会调用该类的反方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Nint</span>(<span class="title class_ inherited__">int</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__radd__</span>(<span class="params">self, other</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">int</span>.__sub__(self, other)</span><br><span class="line">a = Nint(<span class="number">5</span>)</span><br><span class="line">b = Nint(<span class="number">3</span>)</span><br><span class="line">c = <span class="built_in">int</span>(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">1</span> + a </span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c + a</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b + a</span><br><span class="line"><span class="number">8</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-增量复制运算"><a href="#3-增量复制运算" class="headerlink" title="3.增量复制运算"></a>3.增量复制运算</h2><p>+&#x3D;, -&#x3D;, *&#x3D;, &#x2F;&#x3D;等运算符成为增量运算符<br>魔法方法的命名原则为：在运算符名字前加i（例如iadd， isub）<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/dongdiao5720/article/details/102271527">详情查看链接</a></p>
+<h2 id="4-一元操作符"><a href="#4-一元操作符" class="headerlink" title="4.一元操作符"></a>4.一元操作符</h2><table>
+<thead>
+<tr>
+<th align="center">魔法方法名</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">__pos__(self, other)</td>
+<td align="center">定义正号的行为：+</td>
+</tr>
+<tr>
+<td align="center">__neg__(self, other)</td>
+<td align="center">定义负号的行为：+</td>
+</tr>
+<tr>
+<td align="center">__abs__(self, other)</td>
+<td align="center">定义当被abs()调用的行为：+</td>
+</tr>
+<tr>
+<td align="center">__invert__(self, other)</td>
+<td align="center">定义按位求反的行为：+</td>
+</tr>
+</tbody></table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类与对象</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">魔法方法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/15/%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python装饰器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -909,71 +1092,6 @@
 
 
   
-    <article id="post-markdown操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/04/markdown%E6%93%8D%E4%BD%9C/">Markdown Test</a>
-    </h1>
-  
-
-        
-        <a href="/2022/04/04/markdown%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2022-04-04T03:27:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h2>
-        
-          <a class="article-more-a" href="/2022/04/04/markdown%E6%93%8D%E4%BD%9C/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/04/04/markdown%E6%93%8D%E4%BD%9C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1092,6 +1210,10 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">概念</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">装饰器</a>
               </li>
              
@@ -1100,15 +1222,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">类与对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">概念</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">类与对象</a>
               </li>
              
               <li class="article-tag-list-item">
