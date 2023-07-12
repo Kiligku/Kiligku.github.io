@@ -153,19 +153,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Control Barrier Function" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/06/28/test/">test</a>
+      <a class="article-title" href="/2023/06/28/Control%20Barrier%20Function/">Control Barrier Function</a>
     </h1>
   
 
         
-        <a href="/2023/06/28/test/" class="archive-article-date">
+        <a href="/2023/06/28/Control%20Barrier%20Function/" class="archive-article-date">
   	<time datetime="2023-06-28T13:36:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-28</time>
 </a>
         
@@ -173,7 +173,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="THIS-IS-A-TEST-FOR-GIT"><a href="#THIS-IS-A-TEST-FOR-GIT" class="headerlink" title="THIS IS A TEST FOR GIT"></a>THIS IS A TEST FOR GIT</h1>
+        <h1 id="Control-Barrier-Function"><a href="#Control-Barrier-Function" class="headerlink" title="Control Barrier Function"></a>Control Barrier Function</h1><h2 id="1-Lyapunov-Function（LF）"><a href="#1-Lyapunov-Function（LF）" class="headerlink" title="1. Lyapunov Function（LF）"></a>1. Lyapunov Function（LF）</h2><p>目的：构造一个能量函数$V(x)$，对于稳定点为$x_e$的系统，分析其是否渐近稳定(asymptotically stable)。</p>
+<p>对于一般线性\非线性系统动态：<br>$$\dot{x} &#x3D; f(x) + g(x)u$$</p>
+<p>如果构造$V(x)$<br>$$<br>\begin{aligned}<br>    s.t. \quad  &amp;V(x_e) &#x3D; 0, V(x) &gt; 0 \quad for ; x \neq x_e \<br>    &amp; \dot{V}(x) &#x3D; \frac{\partial V}{\partial x}f(x) &lt; 0  \quad for ; x \neq x_e<br>\end{aligned}<br>$$<br>则可以证明系统渐进稳定</p>
+<p>Lyapunov Function的性质：对于所有$c&gt;0$的sublevel set:<br>$$\Omega_c &#x3D; {x | V(x)\leq c}$$<br>$\Omega_c$都是invariant set</p>
+<p>构造Lyapunov函数分析系统稳定性的一个好处是不用求解原系统的微分方程。</p>
+<h2 id="2-Control-Lyapunov-Function-CLF"><a href="#2-Control-Lyapunov-Function-CLF" class="headerlink" title="2. Control Lyapunov Function(CLF)"></a>2. Control Lyapunov Function(CLF)</h2><p>对于自身无法稳定的系统，我们希望构造一个反馈控制器$u&#x3D;k(x)$来镇定系统。<br>$$stability \rarr stablizibility \<br>forward;invariance \rarr control; invariance$$</p>
+<p>由于加入了控制的作用，$V$现在同时是$x$和$u$的函数，CLF需要满足的条件如下：<br>$$<br>\begin{aligned}<br>&amp;1. \quad \Omega_C :&#x3D;{x\in\mathbb{R}:V(x) \leq c}; is; bounded \<br>&amp;2. \quad V(x) &gt; 0, \quad \forall s \in \mathbb{R}^n \setminus {x_e}, V(x_e)&#x3D;0 \<br>&amp;3. \quad \underset{u \in U}{min}\dot{V}(x, u) &lt; 0, \quad \forall x \in \Omega_c \setminus {x_e}<br>\end{aligned}<br>$$<br>$\Omega_c$被称为region of attraction(ROA),这个集合内出发的所有状态都会渐近稳定至$x_e$</p>
+<h3 id="Exponentially-Stablizing-CLF"><a href="#Exponentially-Stablizing-CLF" class="headerlink" title="Exponentially Stablizing CLF"></a>Exponentially Stablizing CLF</h3><p>为了保证系统趋近稳定的速率，CLF的条件3可以修改为<br>$$<br>\underset{u \in U}{min}\dot{V}(x, u) + \lambda V(x) &lt; 0, \quad \forall x \in \Omega_c \setminus {x_e}<br>$$</p>
+<h2 id="3-Nagumo’s-Invariance-Principle"><a href="#3-Nagumo’s-Invariance-Principle" class="headerlink" title="3. Nagumo’s Invariance Principle"></a>3. Nagumo’s Invariance Principle</h2><p>若不要求系统渐近稳定，而对系统的安全提出要求。即要求系统在安全集内forward invariant，我们可以借助Nagumo’s invariance principle构造函数$h(x)$：</p>
+<p>若存在一个连续可微函数$h(x)$, 对于它的superlevel set：$\mathcal{C}&#x3D;{x|h(x) \geq 0}$，满足<br>$$\dot{h}(x) &gt; 0 \quad \forall x\in \partial\mathcal{C}$$<br>其中$\partial \mathcal{C}$表示集合的边界</p>
+<p>则$\mathcal{C}$具有forward invariant性质</p>
+<p>相比LF拥有多个forward invariant的sublevel set，$h(x)$只有对应0的superlevel set拥有此性质。并且对$h(x)$本身只有边界导数值的要求，这使得$h(x)$更加易于构造。</p>
+<h2 id="4-Control-Barrier-Function"><a href="#4-Control-Barrier-Function" class="headerlink" title="4. Control Barrier Function"></a>4. Control Barrier Function</h2>
       
 
       
@@ -185,7 +197,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/06/28/test/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/06/28/Control%20Barrier%20Function/">展开全文 >></a>
         </p>
       
 
