@@ -1,10 +1,9 @@
 ---
 title: 类与对象_BIF
 date: 2022-05-02 09:53:36
-categories: 
+categories:
 - python
 tags: 
-- python
 - 面向对象编程
 ---
 # python类与对象的BIF(Built In Function)

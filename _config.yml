@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: KIRHO
-subtitle: aRe yoU still iN pain?
-description:
-keywords: "Bugs"
-author: Xuan
+title: KIRHO Blog
+subtitle:
+description: "Something tricky and trash"
+keywords: "Bugs,KIRHO,BLOG"
+author: KIRHO
 language: zh-CN
 timezone: 
 
@@ -119,7 +119,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yilia
+theme: butterfly
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

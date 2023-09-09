@@ -1,8 +1,8 @@
 ---
 title: 用tensorflow实现简单的猫猫识别
 date: 2022-05-08 16:50:24
-categories: 
-- python
+categories:
+- 机器学习
 tags: 
 - 深度学习
 - tensorflow
