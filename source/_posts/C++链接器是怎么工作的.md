@@ -3,7 +3,7 @@
 错误信息：编译阶段发生的错误编号以C开头（例如语法错误），链接阶段发生的错误编号以LNK开头（例如缺少main函数）。
 
 ## 程序的入口
-
+<!--more-->
 程序的入口一般是main函数，但也不必须是main函数，可以在VS的Property界面更改。
 
 <img src="https://raw.githubusercontent.com/Kiligku/images/master/QQ%E6%88%AA%E5%9B%BE20230306000002.png" style="zoom:67%;" />
