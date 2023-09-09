@@ -1,10 +1,10 @@
 ---
 title: python装饰器
 date: 2022-06-24 11:09:14
-categoris:
+categories:
 - python
 tags:
-- python
+- 面向对象编程
 ---
 
 # python装饰器是啥？有什么作用？
