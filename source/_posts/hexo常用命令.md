@@ -1,7 +1,7 @@
 ---
 title: hexo常用命令
 date: 2022-04-29 09:50:52
-tags: 
+categories:
 - hexo
 ---
 # HEXO上传博客常用指令
