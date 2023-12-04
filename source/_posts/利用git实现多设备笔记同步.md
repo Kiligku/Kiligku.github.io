@@ -10,7 +10,7 @@ tags:
 
 ## 1. 前置工作
 在github的hexo仓库创建新的分支（后面称为hexo分支），存储生成网页代码的素材文件夹（后面简称为blog文件夹），然后在新设备上创建新文件夹，克隆之前创建的hexo分支。
-```
+```bash
 git clone -b hexo <repo link> 
 ```
 
