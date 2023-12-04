@@ -1,0 +1,212 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>深度理解万象死锁的现象和成因 | KIRHO Blog</title><meta name="author" content="KIRHO"><meta name="copyright" content="KIRHO"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="深度理解万象死锁的现象和成因万向死锁（gimbal lock）存在于欧拉角表示的旋转中，为了和Craig版的机器人学导论一致，下面只讨论zyx欧拉角的情况（其他形式的欧拉角思路一致）。 万向死锁的现象简单来说，万向死锁表现为当欧拉角设定绕y轴（也就是欧拉角旋转顺序中的第二个轴）旋转90度时，物体在三维空间旋转会失去一个自由度，即无论调整绕x轴还是z轴的旋转角度，最终物体也只会绕世界坐标中的一个轴旋">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度理解万象死锁的现象和成因">
+<meta property="og:url" content="http://example.com/2023/12/04/%E6%B7%B1%E5%BA%A6%E7%90%86%E8%A7%A3%E4%B8%87%E8%B1%A1%E6%AD%BB%E9%94%81%E7%9A%84%E7%8E%B0%E8%B1%A1%E5%92%8C%E6%88%90%E5%9B%A0/index.html">
+<meta property="og:site_name" content="KIRHO Blog">
+<meta property="og:description" content="深度理解万象死锁的现象和成因万向死锁（gimbal lock）存在于欧拉角表示的旋转中，为了和Craig版的机器人学导论一致，下面只讨论zyx欧拉角的情况（其他形式的欧拉角思路一致）。 万向死锁的现象简单来说，万向死锁表现为当欧拉角设定绕y轴（也就是欧拉角旋转顺序中的第二个轴）旋转90度时，物体在三维空间旋转会失去一个自由度，即无论调整绕x轴还是z轴的旋转角度，最终物体也只会绕世界坐标中的一个轴旋">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/Kiligku/images/master/harutya.png">
+<meta property="article:published_time" content="2023-12-04T03:56:52.000Z">
+<meta property="article:modified_time" content="2023-12-04T12:55:58.935Z">
+<meta property="article:author" content="KIRHO">
+<meta property="article:tag" content="Bugs,KIRHO,BLOG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Kiligku/images/master/harutya.png"><link rel="shortcut icon" href="https://raw.githubusercontent.com/Kiligku/images/master/fp.png"><link rel="canonical" href="http://example.com/2023/12/04/%E6%B7%B1%E5%BA%A6%E7%90%86%E8%A7%A3%E4%B8%87%E8%B1%A1%E6%AD%BB%E9%94%81%E7%9A%84%E7%8E%B0%E8%B1%A1%E5%92%8C%E6%88%90%E5%9B%A0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '深度理解万象死锁的现象和成因',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-12-04 20:55:58'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raw.githubusercontent.com/Kiligku/images/master/harutya.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://raw.githubusercontent.com/Kiligku/images/master/kano.png')"><nav id="nav"><span id="blog-info"><a href="/" title="KIRHO Blog"><span class="site-name">KIRHO Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">深度理解万象死锁的现象和成因</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-12-04T03:56:52.000Z" title="发表于 2023-12-04 11:56:52">2023-12-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-12-04T12:55:58.935Z" title="更新于 2023-12-04 20:55:58">2023-12-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%84%9F%E7%9F%A5/">机器人感知</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="深度理解万象死锁的现象和成因"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="深度理解万象死锁的现象和成因"><a href="#深度理解万象死锁的现象和成因" class="headerlink" title="深度理解万象死锁的现象和成因"></a>深度理解万象死锁的现象和成因</h1><p>万向死锁（gimbal lock）存在于欧拉角表示的旋转中，为了和Craig版的机器人学导论一致，下面只讨论zyx欧拉角的情况（其他形式的欧拉角思路一致）。</p>
+<h2 id="万向死锁的现象"><a href="#万向死锁的现象" class="headerlink" title="万向死锁的现象"></a>万向死锁的现象</h2><p>简单来说，万向死锁表现为当欧拉角设定绕y轴（也就是欧拉角旋转顺序中的第二个轴）旋转90度时，物体在三维空间旋转会失去一个自由度，即无论调整绕x轴还是z轴的旋转角度，最终物体也只会绕<strong>世界坐标中的</strong>一个轴旋转。</p>
+<h2 id="万向死锁的代数推导"><a href="#万向死锁的代数推导" class="headerlink" title="万向死锁的代数推导"></a>万向死锁的代数推导</h2><p>由于zyx欧拉角的表达形式固定，代数推导的过程也十分显然，如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/Kiligku/images/master/ddf4c8a1-851b-4582-a2fe-47722276f5dd.png"></p>
+<h2 id="直观理解"><a href="#直观理解" class="headerlink" title="直观理解"></a>直观理解</h2><h3 id="1-理解欧拉角旋转顺序的作用"><a href="#1-理解欧拉角旋转顺序的作用" class="headerlink" title="1. 理解欧拉角旋转顺序的作用"></a>1. 理解欧拉角旋转顺序的作用</h3><p>学习zyx欧拉角时，对它的理解是“先绕z轴旋转$\theta$角度，再绕动系的y轴旋转$\beta$角度…”，这样的理解虽然没有原则性错误，但容易把欧拉角理解成描述旋转“过程”的工具，但其实欧拉角的本质是一个旋转矩阵，描述的是旋转的<strong>结果</strong>，而欧拉角对同一变换的描述方法可能有多个，即存在奇异性，这正是发生死锁的本质原因。</p>
+<p>zyx欧拉角对旋转的顺序有严格的要求，即无论之后绕动系y和x轴如何旋转，最开始绕的z轴都是初始的z轴，同样地，无论最后绕x轴如何旋转，之前绕的y轴都是第一步绕z轴旋转后动系的y轴。在物体的旋转中我们可以用一种规则来等效这种旋转顺序的要求：先旋转的轴可以带动后旋转的轴旋转，而后旋转的轴不能带动先旋转的轴旋转。有了这个等效的规则，就可以很好地解释万向死锁发生的原因。</p>
+<h3 id="2-万向死锁发生的直观理解"><a href="#2-万向死锁发生的直观理解" class="headerlink" title="2.万向死锁发生的直观理解"></a>2.万向死锁发生的直观理解</h3><img src="https://raw.githubusercontent.com/Kiligku/images/master/a88c7150-789b-491b-822f-c0d6964c52be.png" width="500">
+
+<p>参考上图的坐标系（这个视频用的是xyz的旋转顺序），当飞机绕x轴旋转一个角度后，此时整个机体坐标系都一起旋转。然后飞机绕机体的y轴旋转，但不带动z轴，旋转y轴90度后机体的x轴与原z轴重合，此时再绕x轴旋转的表现就是绕原有的z轴旋转，并且这两个旋转的方向相反，具体数值可以对应上面的代数推导。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">KIRHO</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/12/04/%E6%B7%B1%E5%BA%A6%E7%90%86%E8%A7%A3%E4%B8%87%E8%B1%A1%E6%AD%BB%E9%94%81%E7%9A%84%E7%8E%B0%E8%B1%A1%E5%92%8C%E6%88%90%E5%9B%A0/">http://example.com/2023/12/04/%E6%B7%B1%E5%BA%A6%E7%90%86%E8%A7%A3%E4%B8%87%E8%B1%A1%E6%AD%BB%E9%94%81%E7%9A%84%E7%8E%B0%E8%B1%A1%E5%92%8C%E6%88%90%E5%9B%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">KIRHO Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://raw.githubusercontent.com/Kiligku/images/master/harutya.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/12/04/%E7%9B%B8%E6%9C%BA%E6%8A%95%E5%BD%B1%E7%9F%A9%E9%98%B5%E7%9A%84%E6%8E%A8%E5%AF%BC%E5%92%8C%E7%90%86%E8%A7%A3/" title="相机投影矩阵的推导和理解"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">相机投影矩阵的推导和理解</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/12/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%9B%E5%85%83%E6%95%B0/" title="机器人学基础-四元数"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">机器人学基础-四元数</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raw.githubusercontent.com/Kiligku/images/master/harutya.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">KIRHO</div><div class="author-info__description">Something tricky and trash</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Kiligku"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Kiligku" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E7%90%86%E8%A7%A3%E4%B8%87%E8%B1%A1%E6%AD%BB%E9%94%81%E7%9A%84%E7%8E%B0%E8%B1%A1%E5%92%8C%E6%88%90%E5%9B%A0"><span class="toc-number">1.</span> <span class="toc-text">深度理解万象死锁的现象和成因</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%87%E5%90%91%E6%AD%BB%E9%94%81%E7%9A%84%E7%8E%B0%E8%B1%A1"><span class="toc-number">1.1.</span> <span class="toc-text">万向死锁的现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%87%E5%90%91%E6%AD%BB%E9%94%81%E7%9A%84%E4%BB%A3%E6%95%B0%E6%8E%A8%E5%AF%BC"><span class="toc-number">1.2.</span> <span class="toc-text">万向死锁的代数推导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E8%A7%82%E7%90%86%E8%A7%A3"><span class="toc-number">1.3.</span> <span class="toc-text">直观理解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%90%86%E8%A7%A3%E6%AC%A7%E6%8B%89%E8%A7%92%E6%97%8B%E8%BD%AC%E9%A1%BA%E5%BA%8F%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. 理解欧拉角旋转顺序的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%87%E5%90%91%E6%AD%BB%E9%94%81%E5%8F%91%E7%94%9F%E7%9A%84%E7%9B%B4%E8%A7%82%E7%90%86%E8%A7%A3"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.万向死锁发生的直观理解</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/04/%E7%9B%B8%E6%9C%BA%E6%8A%95%E5%BD%B1%E7%9F%A9%E9%98%B5%E7%9A%84%E6%8E%A8%E5%AF%BC%E5%92%8C%E7%90%86%E8%A7%A3/" title="相机投影矩阵的推导和理解">相机投影矩阵的推导和理解</a><time datetime="2023-12-04T04:08:33.000Z" title="发表于 2023-12-04 12:08:33">2023-12-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/04/%E6%B7%B1%E5%BA%A6%E7%90%86%E8%A7%A3%E4%B8%87%E8%B1%A1%E6%AD%BB%E9%94%81%E7%9A%84%E7%8E%B0%E8%B1%A1%E5%92%8C%E6%88%90%E5%9B%A0/" title="深度理解万象死锁的现象和成因">深度理解万象死锁的现象和成因</a><time datetime="2023-12-04T03:56:52.000Z" title="发表于 2023-12-04 11:56:52">2023-12-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/12/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E5%9F%BA%E7%A1%80-%E5%9B%9B%E5%85%83%E6%95%B0/" title="机器人学基础-四元数">机器人学基础-四元数</a><time datetime="2023-10-12T12:30:57.000Z" title="发表于 2023-10-12 20:30:57">2023-10-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/09/19/%E7%A0%94%E8%AE%A8%E8%AF%BE%E7%AC%AC%E4%B8%83%E8%AE%B2-%E5%A4%9A%E6%97%8B%E7%BF%BC%E4%BC%A0%E6%84%9F%E5%99%A8%E7%9A%84%E6%A0%A1%E6%AD%A3%E5%8F%8A%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B/" title="研讨课第七讲-多旋翼传感器的校正及测量模型">研讨课第七讲-多旋翼传感器的校正及测量模型</a><time datetime="2023-09-19T03:48:21.000Z" title="发表于 2023-09-19 11:48:21">2023-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/09/09/%E5%88%A9%E7%94%A8git%E5%AE%9E%E7%8E%B0%E5%A4%9A%E8%AE%BE%E5%A4%87%E7%AC%94%E8%AE%B0%E5%90%8C%E6%AD%A5/" title="利用git实现hexo多设备笔记同步">利用git实现hexo多设备笔记同步</a><time datetime="2023-09-09T13:58:46.000Z" title="发表于 2023-09-09 21:58:46">2023-09-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By KIRHO</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
